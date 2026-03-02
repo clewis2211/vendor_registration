@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fairfield Market & Easter Fest - Vendor Application</title>
+    <title>The Fairfield Market & Easter Fest - Vendor Application</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -431,7 +431,7 @@
 <body>
     <div class="page-wrapper">
         <div class="hero-section">
-            <h1 class="hero-title">Fairfield Market<br>& Easter Fest</h1>
+            <h1 class="hero-title">The Fairfield Market<br>& Easter Fest</h1>
             <p class="hero-subtitle">Vendor Application</p>
         </div>
 
@@ -441,7 +441,7 @@
                 PERMIT PAYMENT & PICKUP NOTICE
             </div>
             <p class="permit-notice-text">
-                All approved vendors <strong>must pay for and pick up their vendor permit in person at City Hall</strong> prior to the event. This is a required step for final approval and event participation.
+                All approved vendors <strong>must pay $30 for and pick up their vendor permit in person at City Hall</strong> prior to the event. This is a required step for final approval and event participation.
             </p>
         </div>
 
@@ -585,6 +585,30 @@
                         </div>
                     </div>
 
+                    <!-- EASTER EGG HUNT SPONSORSHIP SECTION -->
+                    <h2 class="form-section-title">Easter Egg Hunt Prize Sponsorship</h2>
+
+                    <div class="form-group">
+                        <label>Would you like to sponsor a prize for the Easter egg hunt? <span style="font-size: 12px; color: var(--text-light); font-weight: 400;">(Optional)</span></label>
+                        <div style="margin-top: 12px; display: flex; gap: 20px;">
+                            <div class="checkbox-group" style="margin-bottom: 0;">
+                                <input type="radio" id="sponsor-yes" name="prizeSponsorship" value="yes" onchange="togglePrizeDescription()">
+                                <label for="sponsor-yes" class="checkbox-label" style="margin-bottom: 0;">Yes</label>
+                            </div>
+                            <div class="checkbox-group" style="margin-bottom: 0;">
+                                <input type="radio" id="sponsor-no" name="prizeSponsorship" value="no" onchange="togglePrizeDescription()">
+                                <label for="sponsor-no" class="checkbox-label" style="margin-bottom: 0;">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="prizeDescriptionGroup" style="display: none;">
+                        <label for="prizeDescription">Prize Description <span class="required">*</span></label>
+                        <textarea id="prizeDescription" name="prizeDescription" placeholder="Describe the prize you would like to sponsor (e.g., gift basket, toys, store credit, etc.)"></textarea>
+                        <div class="form-hint">Please provide details about the prize to help us promote your sponsorship</div>
+                        <div class="error-message" id="prizeDescriptionError">Prize description is required if sponsoring</div>
+                    </div>
+
                     <!-- TERMS AND CONDITIONS SECTION -->
                     <h2 class="form-section-title">Terms & Conditions</h2>
 
@@ -655,6 +679,24 @@
     <script>
         const form = document.getElementById('vendorForm');
         const successMessage = document.getElementById('successMessage');
+
+        // Function to toggle prize description field
+        function togglePrizeDescription() {
+            const prizeSponsorship = document.querySelector('input[name="prizeSponsorship"]:checked')?.value;
+            const prizeDescriptionGroup = document.getElementById('prizeDescriptionGroup');
+            const prizeDescription = document.getElementById('prizeDescription');
+            
+            if (prizeSponsorship === 'yes') {
+                prizeDescriptionGroup.style.display = 'block';
+                prizeDescription.required = true;
+            } else {
+                prizeDescriptionGroup.style.display = 'none';
+                prizeDescription.required = false;
+                prizeDescription.value = '';
+                document.getElementById('prizeDescriptionError').classList.remove('show');
+                prizeDescription.classList.remove('error');
+            }
+        }
 
         form.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -746,6 +788,17 @@
                 isValid = false;
             }
 
+            // Validate prize description if sponsoring
+            const prizeSponsorship = document.querySelector('input[name="prizeSponsorship"]:checked')?.value;
+            if (prizeSponsorship === 'yes') {
+                const prizeDescription = document.getElementById('prizeDescription').value.trim();
+                if (!prizeDescription) {
+                    document.getElementById('prizeDescriptionError').classList.add('show');
+                    document.getElementById('prizeDescription').classList.add('error');
+                    isValid = false;
+                }
+            }
+
             // Validate agreement checkboxes
             const termsConditions = document.getElementById('termsConditions').checked;
             if (!termsConditions) {
@@ -815,6 +868,8 @@
             formData.append('website', document.getElementById('website').value);
             formData.append('licensed', document.querySelector('input[name="licensed"]:checked')?.value || '');
             formData.append('electricity', document.querySelector('input[name="electricity"]:checked')?.value || '');
+            formData.append('prizeSponsorship', document.querySelector('input[name="prizeSponsorship"]:checked')?.value || '');
+            formData.append('prizeDescription', document.getElementById('prizeDescription').value);
 
             // Send to Google Apps Script
             fetch(scriptURL, {

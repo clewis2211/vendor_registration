@@ -838,13 +838,15 @@
                 setTimeout(() => {
                     form.reset();
                     successMessage.classList.remove('show');
-                }, 3000);
+                    window.location.href = 'https://www.thefairfieldmarket.com'
+                }, 4000);
             } else {
                 // Scroll to first error
                 const firstError = document.querySelector('.error-message.show');
                 if (firstError) {
                     firstError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }
+                
             }
         });
 

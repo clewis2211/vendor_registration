@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fairfield Market & Easter Fest - Vendor Application</title>
+    <title>The Fairfield Market & Easter Fest - Vendor Application</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -93,7 +93,7 @@
             border-left: 5px solid var(--accent-gold);
             border-radius: 10px;
             padding: 20px;
-            margin-bottom: 30px;
+            margin-top: 30px;
             animation: slideIn 0.8s ease-out 0.2s both;
             box-shadow: 0 4px 12px rgba(212, 165, 116, 0.15);
         }
@@ -118,7 +118,7 @@
 
         .permit-notice-title {
             font-weight: 700;
-            color: var(--error);
+            color: var(--primary);
             font-size: 15px;
             margin-bottom: 8px;
             display: flex;
@@ -127,7 +127,7 @@
 
         .permit-notice-text {
             font-size: 14px;
-            color: var(--warning-text);
+            color: var(--text);
             line-height: 1.6;
             margin: 0;
         }
@@ -431,18 +431,8 @@
 <body>
     <div class="page-wrapper">
         <div class="hero-section">
-            <h1 class="hero-title">Fairfield Market<br>& Easter Fest</h1>
+            <h1 class="hero-title">The Fairfield Market<br>& Easter Fest</h1>
             <p class="hero-subtitle">Vendor Application</p>
-        </div>
-
-        <div class="permit-notice">
-            <div class="permit-notice-title">
-                <span class="permit-notice-icon">🛑</span>
-                PERMIT PAYMENT & PICKUP NOTICE
-            </div>
-            <p class="permit-notice-text">
-                All approved vendors <strong>must pay for and pick up their vendor permit in person at City Hall</strong> prior to the event. This is a required step for final approval and event participation.
-            </p>
         </div>
 
         <div class="container">
@@ -457,7 +447,7 @@
                         <span class="success-icon">✓</span>Application Submitted Successfully!
                     </div>
                     <div class="success-subtext">
-                        Thank you for your interest. We'll review your application and contact you within 3-5 business days. Remember: approved vendors must pick up their permit at City Hall.
+                        Thank you for your interest. We'll contact you within 3-5 business days. Remember: vendors must pick up their permit at City Hall.
                     </div>
                 </div>
 
@@ -543,7 +533,7 @@
                         </div>
                         <div class="form-group">
                             <label for="state">State <span class="required">*</span></label>
-                            <input type="text" id="state" name="state" placeholder="CT" maxlength="2" required>
+                            <input type="text" id="state" name="state" placeholder="AL" maxlength="2" required>
                             <div class="error-message" id="stateError">State is required</div>
                         </div>
                     </div>
@@ -571,7 +561,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label>Do you require electricity? <span style="font-size: 12px; color: var(--text-light); font-weight: 400;">(Note: Limited availability, must request in advance)</span></label>
                         <div style="margin-top: 12px; display: flex; gap: 20px;">
                             <div class="checkbox-group" style="margin-bottom: 0;">
@@ -583,6 +573,30 @@
                                 <label for="electricity-no" class="checkbox-label" style="margin-bottom: 0;">No</label>
                             </div>
                         </div>
+                    </div> -->
+
+                    <!-- EASTER EGG HUNT SPONSORSHIP SECTION -->
+                    <h2 class="form-section-title">Easter Egg Hunt Prize Sponsorship</h2>
+
+                    <div class="form-group">
+                        <label>Would you like to sponsor a prize for the Easter egg hunt? <span style="font-size: 12px; color: var(--text-light); font-weight: 400;">(Optional)</span></label>
+                        <div style="margin-top: 12px; display: flex; gap: 20px;">
+                            <div class="checkbox-group" style="margin-bottom: 0;">
+                                <input type="radio" id="sponsor-yes" name="prizeSponsorship" value="yes" onchange="togglePrizeDescription()">
+                                <label for="sponsor-yes" class="checkbox-label" style="margin-bottom: 0;">Yes</label>
+                            </div>
+                            <div class="checkbox-group" style="margin-bottom: 0;">
+                                <input type="radio" id="sponsor-no" name="prizeSponsorship" value="no" onchange="togglePrizeDescription()">
+                                <label for="sponsor-no" class="checkbox-label" style="margin-bottom: 0;">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="prizeDescriptionGroup" style="display: none;">
+                        <label for="prizeDescription">Prize Description <span class="required">*</span></label>
+                        <textarea id="prizeDescription" name="prizeDescription" placeholder="Describe the prize you would like to sponsor (e.g., gift basket, toys, store credit, etc.)"></textarea>
+                        <div class="form-hint">Please provide details about the prize to help us promote your sponsorship</div>
+                        <div class="error-message" id="prizeDescriptionError">Prize description is required if sponsoring</div>
                     </div>
 
                     <!-- TERMS AND CONDITIONS SECTION -->
@@ -596,7 +610,7 @@
 
                             <p style="margin-bottom: 12px;"><strong>2. Space and Setup:</strong> Participants are responsible for their own setup, including tables, chairs, tents, and any other necessary equipment. All setups must be secure and may not obstruct public access or create a safety hazard. The City of Fairfield is not responsible for any loss or damage to Participant's property.</p>
 
-                            <p style="margin-bottom: 12px;"><strong>3. Pop-Up Permit and Licensing:</strong> All Participants are required to obtain a City of Fairfield pop-up permit at a fee of $38.50 in order to operate at the Event. This fee is non-refundable. The pop-up permit is valid solely for the duration of the Event and does not constitute an ongoing business license or permit to operate in the City of Fairfield. Businesses wishing to continue operating in Fairfield beyond the Event must obtain an official City of Fairfield business license.</p>
+                            <p style="margin-bottom: 12px;"><strong>3. Pop-Up Permit and Licensing:</strong> All Participants are required to obtain a City of Fairfield pop-up permit at a fee of $30 in order to operate at the Event. This fee is non-refundable. The pop-up permit is valid solely for the duration of the Event and does not constitute an ongoing business license or permit to operate in the City of Fairfield. Businesses wishing to continue operating in Fairfield beyond the Event must obtain an official City of Fairfield business license.</p>
 
                             <p style="margin-bottom: 12px;"><strong>4. Liability Waiver and Indemnification:</strong> In consideration of being permitted to participate in the Event, the Participant, on behalf of itself, its employees, and its agents, hereby releases, waives, discharges, and covenants not to sue the City of Fairfield, its officers, employees, and agents from any and all liability, claims, demands, actions, and causes of action whatsoever, direct or indirect, arising out of or related to any loss, damage, or injury, including death, that may be sustained by the Participant or any of the property belonging to the Participant, whether caused by the negligence of the City of Fairfield, or otherwise, while participating in the Event, or while in, on or upon the premises where the Event is being conducted.<br><br>Furthermore, the Participant agrees to indemnify and hold harmless the City of Fairfield from any and all claims, actions, suits, procedures, costs, expenses, damages, and liabilities, including attorney's fees, arising out of the Participant's involvement in the Event.</p>
 
@@ -637,7 +651,7 @@
                         <div class="form-group" style="margin-bottom: 0;">
                             <div class="checkbox-group">
                                 <input type="checkbox" id="permitPickup" name="permitPickup" required>
-                                <label for="permitPickup" class="checkbox-label">I understand that if approved, I must pay for and pick up my vendor permit in person at City Hall prior to the event.</label>
+                                <label for="permitPickup" class="checkbox-label">I understand that I must pay for and pick up my vendor permit in person at City Hall prior to the event.</label>
                             </div>
                             <div class="error-message" id="permitPickupError">You must acknowledge the permit payment and pickup requirement</div>
                         </div>
@@ -648,6 +662,16 @@
                         <button type="reset" class="btn-reset">Clear Form</button>
                     </div>
                 </form>
+
+                <div class="permit-notice">
+                    <div class="permit-notice-title">
+                        <!-- <span class="permit-notice-icon">🛑</span> -->
+                        PERMIT PAYMENT & PICKUP NOTICE
+                    </div>
+                    <p class="permit-notice-text">
+                        All vendors <strong>must pay for and pick up their vendor permit in person at City Hall</strong> prior to the event. This is a required step for final approval and event participation.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -655,6 +679,24 @@
     <script>
         const form = document.getElementById('vendorForm');
         const successMessage = document.getElementById('successMessage');
+
+        // Function to toggle prize description field
+        function togglePrizeDescription() {
+            const prizeSponsorship = document.querySelector('input[name="prizeSponsorship"]:checked')?.value;
+            const prizeDescriptionGroup = document.getElementById('prizeDescriptionGroup');
+            const prizeDescription = document.getElementById('prizeDescription');
+            
+            if (prizeSponsorship === 'yes') {
+                prizeDescriptionGroup.style.display = 'block';
+                prizeDescription.required = true;
+            } else {
+                prizeDescriptionGroup.style.display = 'none';
+                prizeDescription.required = false;
+                prizeDescription.value = '';
+                document.getElementById('prizeDescriptionError').classList.remove('show');
+                prizeDescription.classList.remove('error');
+            }
+        }
 
         form.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -746,6 +788,17 @@
                 isValid = false;
             }
 
+            // Validate prize description if sponsoring
+            const prizeSponsorship = document.querySelector('input[name="prizeSponsorship"]:checked')?.value;
+            if (prizeSponsorship === 'yes') {
+                const prizeDescription = document.getElementById('prizeDescription').value.trim();
+                if (!prizeDescription) {
+                    document.getElementById('prizeDescriptionError').classList.add('show');
+                    document.getElementById('prizeDescription').classList.add('error');
+                    isValid = false;
+                }
+            }
+
             // Validate agreement checkboxes
             const termsConditions = document.getElementById('termsConditions').checked;
             if (!termsConditions) {
@@ -785,6 +838,7 @@
                 setTimeout(() => {
                     form.reset();
                     successMessage.classList.remove('show');
+                    window.location.href = 'https://www.thefairfieldmarket.com'
                 }, 3000);
             } else {
                 // Scroll to first error
@@ -792,6 +846,7 @@
                 if (firstError) {
                     firstError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }
+                
             }
         });
 
@@ -815,6 +870,8 @@
             formData.append('website', document.getElementById('website').value);
             formData.append('licensed', document.querySelector('input[name="licensed"]:checked')?.value || '');
             formData.append('electricity', document.querySelector('input[name="electricity"]:checked')?.value || '');
+            formData.append('prizeSponsorship', document.querySelector('input[name="prizeSponsorship"]:checked')?.value || '');
+            formData.append('prizeDescription', document.getElementById('prizeDescription').value);
 
             // Send to Google Apps Script
             fetch(scriptURL, {
